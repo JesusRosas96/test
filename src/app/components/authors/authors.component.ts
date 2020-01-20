@@ -23,7 +23,7 @@ export class AuthorsComponent implements OnInit {
    * Authors component constructor
    * @param authorsService author service interface
    */
-  constructor( private authorsService: AuthorsService ) {
+  constructor( public authorsService: AuthorsService ) {
     this.authors = [];
     this.loading = false;
   }

@@ -30,7 +30,7 @@ export class BookComponent implements OnInit {
    * @param authorsService author service instance
    * @param route activated route instance
    */
-  constructor( private booksService: BooksService, private authorsService: AuthorsService, private route: ActivatedRoute ) {
+  constructor( public booksService: BooksService, private authorsService: AuthorsService, private route: ActivatedRoute ) {
     this.book =  {
       id: '',
       title: '',

@@ -23,7 +23,7 @@ export class BooksComponent implements OnInit {
    * Books component constructor
    * @param booksService book service interface
    */
-  constructor( private booksService: BooksService ) {
+  constructor( public booksService: BooksService ) {
     this.books = [];
     this.loading =  false;
   }
