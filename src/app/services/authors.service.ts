@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Author } from '../models/author.model';
 import { map, delay } from 'rxjs/operators';
-
+/**
+ * Author service
+ */
 @Injectable({
     providedIn: 'root'
 })
