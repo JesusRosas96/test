@@ -18,6 +18,8 @@ import { AuthorsComponent } from './components/authors/authors.component';
 import { BooksComponent } from './components/books/books.component';
 import { AuthorComponent } from './components/author/author.component';
 import { BookComponent } from './components/book/book.component';
+import { AuthorFilterPipe } from './author-filter.pipe';
+import { BookFilterPipe } from './book-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { BookComponent } from './components/book/book.component';
     AuthorsComponent,
     BooksComponent,
     AuthorComponent,
-    BookComponent
+    BookComponent,
+    AuthorFilterPipe,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule,
