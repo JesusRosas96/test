@@ -14,9 +14,11 @@ export class BooksComponent implements OnInit {
   /**
    * Books variable
    * Loading variable
+   * Refer variable
    */
   books: Book[];
   loading: boolean;
+  refer: string;
   /**
    * Books component constructor
    * @param booksService book service interface

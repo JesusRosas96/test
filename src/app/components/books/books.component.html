@@ -2,16 +2,13 @@
 <hr>
 
 <div class="row">
-    <div class="col text-right">
+    <div class="col">
         <div class="input-group mb-2 col-8">
-            <input type="text" class="form-control" placeholder="Libro que desea buscar..." name="refer" aria-label="Buscar..." aria-describedby="Buscar">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="Search">Buscar</button>
-            </div>
+            <input type="text" class="form-control" placeholder="Libro que desea buscar..." [(ngModel)]="refer" name="refer">
             <button routerLink="/book/new" class="btn btn-primary ml-3">
-                        <i class="fa fa-plus"></i>
-                        Agregar
-                    </button>
+                <i class="fa fa-plus"></i>
+                Agregar
+            </button>
         </div>
     </div>
     <table *ngIf="!loading && books.length > 0" class="table mt-3">
@@ -26,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books; let i = index">
+            <tr *ngFor="let book of books | bookFilter: refer; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ book.title }}</td>
                 <td>{{ book.author }}</td>

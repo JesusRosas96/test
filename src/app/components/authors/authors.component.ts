@@ -14,9 +14,11 @@ export class AuthorsComponent implements OnInit {
   /**
    * Authors variable
    * Loading variable
+   * Refer variable
    */
   authors: Author[];
   loading: boolean;
+  refer: string;
   /**
    * Authors component constructor
    * @param authorsService author service interface

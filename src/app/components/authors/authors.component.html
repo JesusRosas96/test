@@ -4,10 +4,7 @@
 <div class="row">
     <div class="col">
         <div class="input-group mb-2 col-8">
-            <input type="text" class="form-control" placeholder="Autor que desea buscar..." name="refer" aria-label="Buscar..." aria-describedby="Buscar">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="Search">Buscar</button>
-            </div>
+            <input type="text" class="form-control" placeholder="Autor que desea buscar..." [(ngModel)]="refer" name="refer">
             <button routerLink="/author/new" class="btn btn-primary ml-3">
                 <i class="fa fa-plus"></i>
                 Agregar
@@ -25,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let author of authors; let i = index">
+            <tr *ngFor="let author of authors | authorFilter: refer; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ author.name }}</td>
                 <td>{{ author.nationality }}</td>
