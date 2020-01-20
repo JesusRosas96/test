@@ -1,0 +1,42 @@
+<h1>Autor <small>Información del autor</small> </h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/authors">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" [(ngModel)]="author.id" name="id" placeholder="Firebase ID">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre del autor" [(ngModel)]="author.name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Nacionalidad</label>
+                <input type="text" class="form-control" placeholder="Nacionalidad" [(ngModel)]="author.nationality" name="nationality" required>
+            </div>
+            <div class="form-group">
+                <label>Año de Nacimiento</label>
+                <input type="text" class="form-control" placeholder="Año de Nacimiento" [(ngModel)]="author.birthday" name="bornday" required>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<h1>Libro <small>Información del Libro</small> </h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/books">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" [(ngModel)]="book.id" name="id" placeholder="Firebase ID">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+            <div class="form-group">
+                <label>Titulo</label>
+                <input type="text" class="form-control" placeholder="Titulo del Libro" [(ngModel)]="book.title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label>Autor</label>
+                <select class="form-control" [(ngModel)]="book.author" name="author" required>
+                    <ng-container *ngIf="show">
+                        <option *ngFor="let author of authors" [value]="author.name"> {{ author.name }}</option>
+                    </ng-container>
+                    <ng-container *ngIf="!show">
+                        <option  [value]= "book.author"> {{ book.author }} </option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Editorial</label>
+                <input type="text" class="form-control" placeholder="Editorial" [(ngModel)]="book.editorial" name="editorial" required>
+            </div>
+            <div class="form-group">
+                <label>Genero</label>
+                <input type="text" class="form-control" placeholder="Genero" [(ngModel)]="book.category" name="category" required>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<h1>Listado de autores</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <div class="input-group mb-2 col-8">
+            <input type="text" class="form-control" placeholder="Autor que desea buscar..." name="refer" aria-label="Buscar..." aria-describedby="Buscar">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="Search">Buscar</button>
+            </div>
+            <button routerLink="/author/new" class="btn btn-primary ml-3">
+                <i class="fa fa-plus"></i>
+                Agregar
+            </button>
+        </div>
+    </div>
+    <table *ngIf="!loading && authors.length > 0" class="table mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Nacionalidad</th>
+                <th scope="col">Año de Nacimiento</th>
+                <th scope="col">Herramientas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of authors; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ author.name }}</td>
+                <td>{{ author.nationality }}</td>
+                <td>{{ author.birthday }}</td>
+                <td>
+                    <button class="btn btn-info mr-1" [routerLink]="['/author', author.id ]">
+                        <i class="fa fa-pen"></i>
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteAuthor( author, i )">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="!loading && authors.length === 0" class="alert alert-warning text-center mt-3">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="loading" class="alert alert-info text-center mt-3">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>
